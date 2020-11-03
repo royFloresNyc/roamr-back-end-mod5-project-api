@@ -3,12 +3,12 @@ class UsersController < ApplicationController
 
     def index
         users = User.all 
-        render json: users, except: [:created_at, :updated_at]
+        render json: users
     end 
 
     def show 
         if @user
-            render json: @user, except: [:created_at, :updated_at], methods: [:cities]
+            render json: @user
         else 
             render json: {message: 'User not found'}
         end 
