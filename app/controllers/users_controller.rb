@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show, :update, :edit, :destroy]
-    skip_before_action :authorized, only: [:create]
+    before_action :find_user, only: [:show, :update, :destroy]
+    skip_before_action :authorized, only: [:create, :update]
 
     def profile
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
@@ -29,7 +29,13 @@ class UsersController < ApplicationController
         end 
     end 
 
-    def edit
+    def update
+        @user.update(user_params)
+        if @user.valid?
+            render json: {user: UserSerializer.new(@user)}
+        else
+            render json: {error: 'failed to update user'}, status: :not_acceptable
+        end 
     end 
 
     def destroy
