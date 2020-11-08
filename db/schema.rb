@@ -26,10 +26,9 @@ ActiveRecord::Schema.define(version: 2020_11_04_051258) do
 
   create_table "itineraries", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "city_id", null: false
+    t.integer "city_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["city_id"], name: "index_itineraries_on_city_id"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
@@ -44,6 +43,5 @@ ActiveRecord::Schema.define(version: 2020_11_04_051258) do
     t.string "image_url"
   end
 
-  add_foreign_key "itineraries", "cities"
   add_foreign_key "itineraries", "users"
 end

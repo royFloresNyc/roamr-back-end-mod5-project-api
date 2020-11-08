@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:show, :update, :destroy]
-    skip_before_action :authorized, only: [:create, :update]
+    skip_before_action :authorized, only: [:create, :update, :show]
 
     def profile
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
@@ -8,12 +8,12 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all 
-        render json: @users
+        render json: {user: UserSerializer.new(@user)}
     end 
 
     def show 
         if @user
-            render json: @user
+            render json: {user: UserSerializer.new(@user)}
         else 
             render json: {message: 'User not found'}
         end 
