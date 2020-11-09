@@ -1,5 +1,5 @@
 class ItinerariesController < ApplicationController
-    skip_before_action :authorized, only: [:create, :show, :destroy]
+    # skip_before_action :authorized, only: [:create, :show, :destroy]
 
     # def show
     #     @itinerary = Itinerary.find(params[:id])
@@ -12,6 +12,12 @@ class ItinerariesController < ApplicationController
         else
             render json: {error: 'failed to create itinerary'}, status: :not_acceptable
         end 
+    end 
+
+    def destroy
+        @itinerary = Itinerary.find(params[:id])
+        @itinerary.destroy
+        render json: @itinerary
     end 
 
     private
