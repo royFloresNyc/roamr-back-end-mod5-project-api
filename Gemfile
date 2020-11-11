@@ -46,3 +46,5 @@ gem "jwt", "~> 2.2"
 gem 'figaro'
 
 gem "faker", "~> 2.14"
+
+gem 'amadeus'
