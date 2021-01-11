@@ -1,24 +1,26 @@
-# README
+# Roamr API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> This is the back-end API for [Roamr](https://github.com/royFloresNyc/roamr-front-end), a mobile travel app that allows users to query any city, view photos, information, safety ratings, points of interest, and maps.
 
-Things you may want to cover:
+[Demo](https://www.loom.com/share/ffe44225e591412ca3be1b4f843ac32e)
 
-* Ruby version
+## Prerequisites
 
-* System dependencies
+- ruby >= 2.6.1
+- Rails >= 6.0.3
 
-* Configuration
+## Install
 
-* Database creation
+```sh
+bundle install
+```
 
-* Database initialization
+## Usage
 
-* How to run the test suite
+```sh
+rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Author
 
-* Deployment instructions
-
-* ...
+[Roy Flores](https://www.linkedin.com/in/royfloresnyc)
